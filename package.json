@@ -2,10 +2,13 @@
   "name": "tab-title",
   "main": "./lib/tab-title",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Give your unsaved tabs better names. Because \"Untitled\" is about as useful as dinosaur repellent.",
   "keywords": [
   ],
-  "repository": "https://github.com/atom/tab-title",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikjansson/tab-title"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
