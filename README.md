@@ -1,6 +1,7 @@
 # Tab Title
 
-A lightweight Atom package that gives your unsaved tabs better names. Because "Untitled" is about as useful as dinosaur repellent.
+A lightweight Atom package that gives your unsaved tabs better names.  
+Because "Untitled" is about as useful as dinosaur repellent.
 
 The behavior is heavily inspired from Sublime Text.
 
