@@ -1,7 +1,7 @@
 {
   "name": "tab-title",
   "main": "./lib/tab-title",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Give your unsaved tabs better names. Because \"Untitled\" is about as useful as dinosaur repellent.",
   "keywords": [
     "tab",
