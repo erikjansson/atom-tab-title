@@ -69,14 +69,49 @@ describe('TabTitle', () => {
         });
     });
 
+    describe('when closing files', () => {
+        beforeEach(() => {
+            jasmine.attachToDOM(workspaceElement);
+
+            openNewFile();
+
+            runs(() => {
+                editor = atom.workspace.getActiveTextEditor();
+                editor.setText('So about the DHARMA initiative...');
+            });
+
+        });
+
+        it('closes without error when the renamed tab is the last one', () => {
+            var activePane = atom.workspace.getActivePane();
+            expect(() => { activePane.destroyActiveItem(); }).not.toThrow();
+        });
+
+        it('keeps the new name when closing other files', () => {
+
+            openNewFile();
+
+            runs(() => {
+                editor = atom.workspace.getActiveTextEditor();
+                editor.setText('We have to go back, Kate.');
+
+                verifyTabTitle('We have to go back, Kate.', 1);
+
+                atom.workspace.getActivePane().destroyActiveItem();
+
+                verifyTabTitle('So about the DHARMA initiative...');
+            });
+        });
+    });
+
     function openNewFile(){
         waitsForPromise(() => {
             return atom.workspace.open();
         });
     }
 
-    function verifyTabTitle(title){
-        var tab = workspaceElement.querySelector('li.tab');
-        expect(tab.innerText).toEqual(title);
+    function verifyTabTitle(title, index){
+        var tab = workspaceElement.querySelectorAll('li.tab')[index || 0];
+        expect(tab.innerText.trim()).toEqual(title);
     }
 });
