@@ -3,7 +3,14 @@
   "main": "./lib/tab-title",
   "version": "0.1.0",
   "description": "Give your unsaved tabs better names. Because \"Untitled\" is about as useful as dinosaur repellent.",
-  "keywords": [],
+  "keywords": [
+    "tab",
+    "tabs",
+    "unsaved",
+    "temporary",
+    "title",
+    "name"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erikjansson/tab-title"
