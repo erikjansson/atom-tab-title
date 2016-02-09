@@ -28,7 +28,7 @@ describe('TabTitle', () => {
         });
 
         it('should have a customizable default title', () => {
-            atom.config.set('tab-title.defaultPlaceholder', 'Flight 815');
+            atom.config.set('tab-title.defaultTitle', 'Flight 815');
 
             openNewFile();
 
