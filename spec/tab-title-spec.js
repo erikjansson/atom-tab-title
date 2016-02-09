@@ -104,6 +104,20 @@ describe('TabTitle', () => {
         });
     });
 
+    describe('window title', () => {
+        it('gets truncated when it reaches the max allowed length', () => {
+            atom.config.set('tab-title.maxTitleLength', 8);
+
+            openNewFile();
+
+            runs(() => {
+                var editor = atom.workspace.getActiveTextEditor();
+                editor.setText('So we saved the world together for a while, and that was lovely.');
+                expect(document.title).toEqual('So we sa...');
+            });
+        });
+    });
+
     function openNewFile(){
         waitsForPromise(() => {
             return atom.workspace.open();
