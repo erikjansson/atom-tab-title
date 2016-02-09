@@ -52,16 +52,16 @@ describe('TabTitle', () => {
         it('changes the title to the contents of the first line', () => {
 
             runs(() => {
-                editor.setText('The Others are coming!');
-                verifyTabTitle('The Others are coming!');
+                editor.setText('Have a cluckity-cluck-cluck day, Hugo!');
+                verifyTabTitle('Have a cluckity-cluck-cluck day, Hugo!');
             });
         });
 
         it('gets the default title when the editor is cleared', () => {
 
             runs(() => {
-                editor.setText('The Others are coming!');
-                verifyTabTitle('The Others are coming!');
+                editor.setText('Have a cluckity-cluck-cluck day, Hugo!');
+                verifyTabTitle('Have a cluckity-cluck-cluck day, Hugo!');
 
                 editor.setText('');
                 verifyTabTitle('Untitled');
@@ -77,7 +77,7 @@ describe('TabTitle', () => {
 
             runs(() => {
                 editor = atom.workspace.getActiveTextEditor();
-                editor.setText('So about the DHARMA initiative...');
+                editor.setText('Jacob had a thing for numbers.');
             });
 
         });
@@ -93,13 +93,13 @@ describe('TabTitle', () => {
 
             runs(() => {
                 editor = atom.workspace.getActiveTextEditor();
-                editor.setText('We have to go back, Kate.');
+                editor.setText('What lies in the shadow of the statue?');
 
-                verifyTabTitle('We have to go back, Kate.', 1);
+                verifyTabTitle('What lies in the shadow of the statue?', 1);
 
                 atom.workspace.getActivePane().destroyActiveItem();
 
-                verifyTabTitle('So about the DHARMA initiative...');
+                verifyTabTitle('Jacob had a thing for numbers.');
             });
         });
     });
