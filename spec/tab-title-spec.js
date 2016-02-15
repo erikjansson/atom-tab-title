@@ -104,6 +104,32 @@ describe('TabTitle', () => {
         });
     });
 
+    describe('when moving unsaved tabs', () => {
+        it('keeps the new name', () => {
+            jasmine.attachToDOM(workspaceElement);
+            // open two files so that we have items to switch
+            openNewFile();
+
+            runs(() => {
+                editor = atom.workspace.getActiveTextEditor();
+                editor.setText('Yooh');
+            });
+
+            openNewFile();
+
+            runs(() => {
+                editor = atom.workspace.getActiveTextEditor();
+                editor.setText('Bonk');
+
+                // swap the tabs
+                atom.commands.dispatch(workspaceElement, 'pane:move-item-left');
+
+                verifyTabTitle('Bonk');
+            });
+
+        });
+    });
+
     describe('window title', () => {
         it('gets truncated when it reaches the max allowed length', () => {
             atom.config.set('tab-title.maxTitleLength', 8);
