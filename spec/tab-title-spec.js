@@ -106,25 +106,26 @@ describe('TabTitle', () => {
 
     describe('when moving unsaved tabs', () => {
         it('keeps the new name', () => {
-            jasmine.attachToDOM(workspaceElement);
             // open two files so that we have items to switch
             openNewFile();
 
             runs(() => {
                 editor = atom.workspace.getActiveTextEditor();
-                editor.setText('Yooh');
+                editor.setText('If you two are done verbally copulating, we should get a move on.');
             });
 
             openNewFile();
 
             runs(() => {
                 editor = atom.workspace.getActiveTextEditor();
-                editor.setText('Bonk');
+                editor.setText('My name is Henry Gale.');
 
                 // swap the tabs
                 atom.commands.dispatch(workspaceElement, 'pane:move-item-left');
 
-                verifyTabTitle('Bonk');
+                // wait a little before verifying the name change, as the DOM
+                // doesn't update until the event has been handled
+                setTimeout(() => { verifyTabTitle('My name is Henry Gale.'); }, 20);
             });
 
         });
