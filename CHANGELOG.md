@@ -1,3 +1,6 @@
+## 0.3.2 - Move those tabs
+- Fixed bug where tab names wouldn't update when calling `Pane: Move Item Left|Right`
+
 ## 0.3.1 - Bug fighting :facepunch:
 - Fixed bug where unsaved tabs would get the default "untitled" name when moving them with the mouse
 - Updated repo name
