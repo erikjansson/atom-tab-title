@@ -1,7 +1,9 @@
-var TabTitle = require('../lib/tab-title');
+'use strict';
+
+let TabTitle = require('../lib/tab-title');
 
 describe('TabTitle', () => {
-    var workspaceElement, activationPromise;
+    let workspaceElement, activationPromise;
 
     beforeEach(() => {
         workspaceElement = atom.views.getView(atom.workspace);
@@ -22,7 +24,7 @@ describe('TabTitle', () => {
             openNewFile();
 
             runs(() => {
-                var tab = workspaceElement.querySelector('li.tab');
+                let tab = workspaceElement.querySelector('li.tab');
                 expect(tab.innerText).toEqual('Untitled');
             });
         });
@@ -39,7 +41,7 @@ describe('TabTitle', () => {
     });
 
     describe('when editing the contents of an unsaved file', () => {
-        var editor;
+        let editor;
 
         beforeEach(() => {
             openNewFile();
@@ -70,6 +72,8 @@ describe('TabTitle', () => {
     });
 
     describe('when closing files', () => {
+        let editor;
+
         beforeEach(() => {
             jasmine.attachToDOM(workspaceElement);
 
@@ -83,7 +87,7 @@ describe('TabTitle', () => {
         });
 
         it('closes without error when the renamed tab is the last one', () => {
-            var activePane = atom.workspace.getActivePane();
+            let activePane = atom.workspace.getActivePane();
             expect(() => { activePane.destroyActiveItem(); }).not.toThrow();
         });
 
@@ -105,6 +109,8 @@ describe('TabTitle', () => {
     });
 
     describe('when moving unsaved tabs', () => {
+        let editor;
+
         it('keeps the new name', () => {
             // open two files so that we have items to switch
             openNewFile();
@@ -138,7 +144,7 @@ describe('TabTitle', () => {
             openNewFile();
 
             runs(() => {
-                var editor = atom.workspace.getActiveTextEditor();
+                let editor = atom.workspace.getActiveTextEditor();
                 editor.setText('So we saved the world together for a while, and that was lovely.');
                 expect(document.title).toEqual('So we sa...');
             });
@@ -152,7 +158,7 @@ describe('TabTitle', () => {
     }
 
     function verifyTabTitle(title, index){
-        var tab = workspaceElement.querySelectorAll('li.tab')[index || 0];
+        let tab = workspaceElement.querySelectorAll('li.tab')[index || 0];
         expect(tab.innerText.trim()).toEqual(title);
     }
 });
