@@ -1,3 +1,7 @@
+## 0.3.3 - Cosmetics
+- Gave the code a facelift with some ES6/Harmony/ES2015 syntax goodness
+- Did not fix a single bug
+
 ## 0.3.2 - Move those tabs
 - Fixed bug where tab names wouldn't update when calling `Pane: Move Item Left|Right`
 
