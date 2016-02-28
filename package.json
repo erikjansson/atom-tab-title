@@ -20,6 +20,13 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "jshintConfig": {
-    "esversion": 6
+    "esversion": 6,
+    "node": true,
+    "browser": true,
+    "jasmine": true,
+    "globals": {
+      "atom": true,
+      "waitsForPromise": true
+    }
   }
 }
