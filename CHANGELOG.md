@@ -1,3 +1,6 @@
+## 0.3.4 - Rename the correct tab
+- Fixed bug where tab-title would rename the wrong tab after updating to Atom 1.17.x (thanks for the PR, @Jesperbk!)
+
 ## 0.3.3 - Cosmetics
 - Gave the code a facelift with some ES6/Harmony/ES2015 syntax goodness
 - Did not fix a single bug
