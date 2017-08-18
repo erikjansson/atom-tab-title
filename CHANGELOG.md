@@ -1,3 +1,6 @@
+## 0.3.5 - Fix compatibility issue with Atom 1.19.x
+- The package stopped working with Atom 1.19.x (thanks for the PR, @andresrinivasan!)
+
 ## 0.3.4 - Rename the correct tab
 - Fixed bug where tab-title would rename the wrong tab after updating to Atom 1.17.x (thanks for the PR, @Jesperbk!)
 
